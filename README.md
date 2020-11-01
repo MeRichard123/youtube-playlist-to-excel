@@ -9,11 +9,12 @@ Back up your youtube playlist but saving all the titles and urls into a nice exc
 1. Clone the Repo
 2. Run `npm install` to install dependencies
 3. Create a `.env` file (NOTE we will add the api key later):
+```   
    API_KEY = youtube-data-api-key
    LIST_ID = id-of-playlist
    CREATOR = your name
    FILE_NAME = name-of-file-you-want-to-save-to.xlsx
-
+```
 NOTE: the url will look a little like this: https://www.youtube.com/playlist?list={list id}
 Grab the ID and add it in the ENV file
 
