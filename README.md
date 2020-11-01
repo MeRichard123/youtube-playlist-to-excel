@@ -1,6 +1,6 @@
 # Youtube playlist to Excel
 
-Back up your youtube playlist but saving all the titles and urls into a nice excel file
+Back up your youtube playlist by saving all the titles and urls into a nice excel file
 
 (assuming you have node installed)
 
