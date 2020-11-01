@@ -1,0 +1,20 @@
+{
+  "name": "playlist-scraper",
+  "version": "1.0.0",
+  "description": "get titles of videos in a playlist ",
+  "main": "getPlaylist.js",
+  "scripts": {
+    "create": "node getPlaylist.js"
+  },
+  "keywords": [
+    "node",
+    "js"
+  ],
+  "author": "MeRichard123",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "exceljs": "^4.2.0",
+    "googleapis": "^62.0.0"
+  }
+}
