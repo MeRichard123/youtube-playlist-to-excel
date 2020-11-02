@@ -16,22 +16,24 @@ worksheet.columns = [
   { header: 'Url', key: 'url', width: 50,outlineLevel: 1 },
 ]
 
+// library for user input 
+const prompt = require("prompt-sync")()
+
 // Remove current spread sheet if it exists
-const file = process.env.FILE_NAME;
-
-fs.access(file, fs.constants.F_OK, (err) => {
-    if (err) {
-        console.log("File Doesn't Exists")
-    } else {
-        try {
-            fs.unlinkSync(file)
-            console.log("Removing File...")
-        } catch (err) {
-            console.log(err)
+const CheckFile = (file) => {
+    fs.access(file, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.log("File Doesn't Exists")
+        } else {
+            try {
+                fs.unlinkSync(file)
+                console.log("Removing File...")
+            } catch (err) {
+                console.log(err)
+            }
         }
-    }
-});
-
+    })
+}
 
 
 // function to get names and urls then write to excel
@@ -45,7 +47,7 @@ const getPlayListData = async () => {
             const youtube = await google.youtube("v3").playlistItems.list({
                 key: process.env.API_KEY,
                 part: "snippet",
-                playlistId: process.env.LIST_ID,
+                playlistId: listID,
                 maxResults: 50,
                 pageToken: token
             })
@@ -62,7 +64,9 @@ const getPlayListData = async () => {
             })
             
         } catch (err) {
-            console.error(err)
+            CheckFile(file)
+            console.error("Playlist Doesn't Exist")
+            break;
         }
     }
     workbook.xlsx.writeFile(file)
@@ -70,5 +74,9 @@ const getPlayListData = async () => {
 
 }
 
+
+let file = prompt("What would you like to call the file?") + ".xlsx";
+CheckFile(file)
+let listID = prompt("Enter Video ID");
 getPlayListData()
 
