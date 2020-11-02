@@ -30,4 +30,4 @@ Now you are done with setup simply run the file with
 
 Upon running you will be prompted to enter the name of the Excel File you want to save
 and the ID of the playlist you are scraping.
-NOTE: the url will look a little like this: https://www.youtube.com/playlist?list={list id}
+NOTE: the url will look a little like this: www.youtube.com/playlist?list={list id}
